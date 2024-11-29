@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Weather Dashboard</h1>
+    <div>
+        <input type="text" id="latInput" value="52.52" placeholder="Enter latitude" />
+        <input type="text" id="longInput" value="13.41" placeholder="Enter longitude" />
+        <button onclick="getCurrentWeather()">Get Current Weather</button>
+    </div>
+    <div>
+        <button onclick="getForecast()">Get 7-Day Forecast</button>
+        <button onclick="getHistoricalWeather()">Get Historical Weather</button>
+        <input type="date" id="historyDate" />
+    </div>
+    <pre id="output"></pre>
+    <script src="script.js"></script>
+</body>
+</html>
