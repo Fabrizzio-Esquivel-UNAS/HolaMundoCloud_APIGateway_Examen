@@ -15,7 +15,7 @@ app.get('/forecast', async (req, res) => {
     const start = Date.now(); // Start timing
     try {
         // Fetch the selected city from the Current Weather Service
-        const coordinatesResponse = await axios.get('http://localhost:3001/selected-coordinates');
+        const coordinatesResponse = await axios.get('http://3.133.123.214:3001/selected-coordinates');
         const { lat, long } = coordinatesResponse.data;
         
         // Fetch the forecast data

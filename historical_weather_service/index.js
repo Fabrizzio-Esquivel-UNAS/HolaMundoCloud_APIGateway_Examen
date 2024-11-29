@@ -18,7 +18,7 @@ app.get('/historical', async (req, res) => {
 
     try {
         // Fetch the selected coordinates from the Current Weather Service
-        const coordinatesResponse = await axios.get('http://localhost:3001/selected-coordinates');
+        const coordinatesResponse = await axios.get('http://3.133.123.214:3001/selected-coordinates');
         const { lat, long } = coordinatesResponse.data;
 
         // Fetch the historical weather data

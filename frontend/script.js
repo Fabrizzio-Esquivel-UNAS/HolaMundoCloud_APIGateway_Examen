@@ -1,6 +1,6 @@
-const api1 = 'https://4zpg6n3j9h.execute-api.us-east-2.amazonaws.com/stage/instance1';
-const api2 = 'https://4zpg6n3j9h.execute-api.us-east-2.amazonaws.com/stage/instance1_5';
-const api3 = 'https://4zpg6n3j9h.execute-api.us-east-2.amazonaws.com/stage/instance2';
+const api1 = 'https://t13o0jf0r9.execute-api.us-east-2.amazonaws.com/stage/instance1';
+const api2 = 'https://t13o0jf0r9.execute-api.us-east-2.amazonaws.com/stage/instance1_5';
+const api3 = 'https://t13o0jf0r9.execute-api.us-east-2.amazonaws.com/stage/instance2';
 
 async function getCurrentWeather() {
     const lat = document.getElementById('latInput').value;
