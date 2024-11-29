@@ -1,18 +1,18 @@
 version: "3.9"
 
 services:
-  forecastService:
+  forecast_service:
     build:
-      context: ./forecastService
+      context: ./forecast_service
     ports:
       - "80:3001"
     restart: always
     networks:
       - nodejs-network
 
-  currentWeatherService:
+  current_weather_service:
     build:
-      context: ./currentWeatherService
+      context: ./current_weather_service
     ports:
       - "443:3002"
     restart: always
