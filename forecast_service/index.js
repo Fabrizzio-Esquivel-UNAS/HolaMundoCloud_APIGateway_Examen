@@ -6,6 +6,12 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 
+async function getForecast(lat, long) {
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&past_days=7&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m`;
+    const response = await axios.get(url);
+    return response.data;
+};
+
 app.get('/forecast', async (req, res) => {
     const start = Date.now(); // Start timing
     try {
@@ -15,7 +21,7 @@ app.get('/forecast', async (req, res) => {
         
         // Fetch the forecast data
         const elapsed = Date.now() - start; // Calculate elapsed time
-        const data = await forecastService(lat, long);
+        const data = await getForecast(lat, long);
         res.json({ data, elapsed });
     } catch (error) {
         res.status(500).json({ error: error.message });

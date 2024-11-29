@@ -1,10 +1,15 @@
 const express = require('express');
-const historicalWeatherService = require('./historicalWeatherService');
 const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
 app.use(cors());
+
+async function getHistoricalWeather(lat, long, date) {
+    const url = `https://archive-api.open-meteo.com/v1/era5?latitude=${lat}&longitude=${long}&start_date=${date}&end_date=${date}&hourly=temperature_2m`;
+    const response = await axios.get(url);
+    return response.data;
+};
 
 app.get('/historical', async (req, res) => {
     const start = Date.now(); // Start timing
@@ -18,7 +23,7 @@ app.get('/historical', async (req, res) => {
 
         // Fetch the historical weather data
         const elapsed = Date.now() - start; // Calculate elapsed time
-        const data = await historicalWeatherService(lat, long, date);
+        const data = await getHistoricalWeather(lat, long, date);
         res.json({ data, elapsed });
     } catch (error) {
         res.status(500).json({ error: error.message });

@@ -1,5 +1,4 @@
 const express = require('express');
-const currentWeatherService = require('./currentWeatherService');
 const cors = require('cors');
 
 const app = express();
@@ -8,6 +7,12 @@ app.use(cors());
 let selectedLatitude = null
 let selectedLongitude = null; 
 
+async function getCurrentWeather(lat, long) {
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current=temperature_2m,wind_speed_10m`;
+    const response = await axios.get(url);
+    return response.data;
+};
+
 // Endpoint to fetch current weather and save city
 app.get('/current-weather', async (req, res) => {
     const { long, lat } = req.query;
@@ -15,7 +20,7 @@ app.get('/current-weather', async (req, res) => {
     
     selectedLatitude = lat
     selectedLongitude = long; // Save the longitude
-    const data = await currentWeatherService(lat, long);
+    const data = await getCurrentWeather(lat, long);
     res.json(data);
 });
 
