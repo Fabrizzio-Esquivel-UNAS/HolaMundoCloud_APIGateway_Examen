@@ -5,7 +5,7 @@ services:
     build:
       context: ./forecast_service
     ports:
-      - "80:3001"
+      - "80:3002"
     restart: always
     networks:
       - nodejs-network
@@ -14,7 +14,7 @@ services:
     build:
       context: ./current_weather_service
     ports:
-      - "443:3002"
+      - "443:3001"
     restart: always
     networks:
       - nodejs-network

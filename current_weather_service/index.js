@@ -20,7 +20,8 @@ app.get('/current-weather', async (req, res) => {
     
     selectedLatitude = lat
     selectedLongitude = long; // Save the longitude
-    const data = await getCurrentWeather(lat, long);
+    // const data = await getCurrentWeather(lat, long);
+    const data = {}
     res.json(data);
 });
 
