@@ -20,8 +20,8 @@ app.get('/forecast', async (req, res) => {
         
         // Fetch the forecast data
         const elapsed = Date.now() - start; // Calculate elapsed time
-        const data = await getForecast(lat, long);
-        // data = {};
+        // const data = await getForecast(lat, long);
+        const data = {};
         res.json({ data, elapsed });
     } catch (error) {
         res.status(500).json({ error: error.message });
