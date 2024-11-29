@@ -18,7 +18,7 @@ app.get('/historical', async (req, res) => {
 
     try {
         // Fetch the selected coordinates from the Current Weather Service
-        const coordinatesResponse = await axios.get('http://18.220.239.93:3001/selected-coordinates');
+        const coordinatesResponse = await axios.get('http://3.143.5.186:3001/selected-coordinates');
         const { lat, long } = coordinatesResponse.data;
 
         // Fetch the historical weather data
@@ -31,7 +31,7 @@ app.get('/historical', async (req, res) => {
     }
 });
 
-const PORT = 3003;
+const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Historical Weather Service running on http://localhost:${PORT}`);
 });
