@@ -130,8 +130,8 @@ jobs:
 
             # Clone your Node.js app from the Git repository (replace with your repo)
             cd /home/ec2-user
-            git clone https://github.com/Fabrizzio-Esquivel-UNAS/HolaMundoCloud_APIGatewayEdition.git nodeapp
-            cd nodeapp/historicalWeatherService
+            git clone ${{ env.REPO_URL }} nodeapp
+            cd nodeapp/historical_weather_service
 
             # Build the Docker image
             sudo docker build -t nodeapp .
