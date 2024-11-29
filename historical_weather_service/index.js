@@ -23,8 +23,8 @@ app.get('/historical', async (req, res) => {
 
         // Fetch the historical weather data
         const elapsed = Date.now() - start; // Calculate elapsed time
-        // const data = await getHistoricalWeather(lat, long, date);
-        const data = {}
+        const data = await getHistoricalWeather(lat, long, date);
+        // const data = {}
         res.json({ data, elapsed });
     } catch (error) {
         res.status(500).json({ error: error.message });

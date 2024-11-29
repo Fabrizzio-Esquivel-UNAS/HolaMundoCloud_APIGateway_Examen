@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const axios = require('axios');
 
 const app = express();
 app.use(cors());
@@ -20,8 +21,8 @@ app.get('/current-weather', async (req, res) => {
     
     selectedLatitude = lat
     selectedLongitude = long; // Save the longitude
-    // const data = await getCurrentWeather(lat, long);
-    const data = {}
+    const data = await getCurrentWeather(lat, long);
+    // const data = {}
     res.json(data);
 });
 
