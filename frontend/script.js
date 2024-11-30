@@ -15,14 +15,14 @@ async function getCurrentWeather() {
 
 async function getForecast() {
     const response = await fetch(`${api2}`);
-    const { data } = await response.json();
+    const data = await response.json();
     displayOutput(data);
 }
 
 async function getHistoricalWeather() {
     const date = document.getElementById('historyDate').value;
     const response = await fetch(`${api3}?date=${date}`);
-    const { data } = await response.json();
+    const data = await response.json();
     displayOutput(data);
 }
 
