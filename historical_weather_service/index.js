@@ -17,14 +17,12 @@ app.get('/historical', async (req, res) => {
     if (!date) return res.status(400).json({ error: 'Date is required.' });
 
     try {
-        console.log("CALLING LOCAL API");
         // Fetch the selected coordinates from the Current Weather Service
-        const coordinatesResponse = await axios.get('http://18.217.135.175:443/selected-coordinates');
+        const coordinatesResponse = await axios.get('http://3.143.218.72:443/selected-coordinates');
         const { lat, long } = coordinatesResponse.data;
 
         // Fetch the historical weather data
         const elapsed = Date.now() - start; // Calculate elapsed time
-        console.log("CALLING EXTERNAL API");
         const data = await getHistoricalWeather(lat, long, date);
         // const data = {}
         res.json({ elapsed, data });
