@@ -24,6 +24,7 @@ app.get('/current-weather', async (req, res) => {
     const data = await getCurrentWeather(lat, long);
     // const data = {}
     res.json(data);
+
 });
 
 // Endpoint to get the selected city
@@ -32,7 +33,7 @@ app.get('/selected-coordinates', (req, res) => {
     res.json({ lat: selectedLatitude, long: selectedLongitude });
 });
 
-const PORT = 3001;
+const PORT = 3002;
 app.listen(PORT, () => {
     console.log(`Current Weather Service running on http://localhost:${PORT}`);
 });

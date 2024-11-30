@@ -15,20 +15,21 @@ app.get('/forecast', async (req, res) => {
     const start = Date.now(); // Start timing
     try {
         // Fetch the selected city from the Current Weather Service
-        const coordinatesResponse = await axios.get('http://3.133.123.214:443/selected-coordinates');
+        const coordinatesResponse = await axios.get('http://current_weather_service:3002/selected-coordinates');
         const { lat, long } = coordinatesResponse.data;
-        
+
         // Fetch the forecast data
         const elapsed = Date.now() - start; // Calculate elapsed time
         const data = await getForecast(lat, long);
         // const data = {};
-        res.json({ data, elapsed });
+        res.json({ elapsed, data });
     } catch (error) {
+        console.log(error.message);
         res.status(500).json({ error: error.message });
     }
 });
 
-const PORT = 3002;
+const PORT = 3001;
 app.listen(PORT, () => {
     console.log(`Forecast Service running on http://localhost:${PORT}`);
 });
