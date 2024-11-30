@@ -8,8 +8,8 @@ on:
 env:
   AWS_REGION: us-east-2
   BUCKET_NAME: hola-mundo-cloud-bucket
-  EC2_HOST_1: 3.133.123.214
-  EC2_HOST_2: 3.128.186.50
+  EC2_HOST_1: 3.143.218.72
+  EC2_HOST_2: 18.217.135.175
   REPO_URL: https://github.com/Fabrizzio-Esquivel-UNAS/HolaMundoCloud_APIGateway_Examen.git
   
 jobs:
